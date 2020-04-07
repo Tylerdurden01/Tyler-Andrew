@@ -1,22 +1,23 @@
-body {
-  background-color: #BC8DA0;
-}
+<style>
+    * {
+         outline: 1px dotted rgb(39, 15, 173);
+    }
+    .empty {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(61, 68, 170);
+        display: inline-block;
+        outline: 2px solid rgb(0, 0, 0)
 
-.nav-bar {
-  background-color: #A04668;
-  padding: 1em;
-  color: #D9D0DE;
-  font-size: 1.2em;
-  font-weight: 600;
-}
+    }
 
-nav > ul > li {
-  border: solid 1px;
-  padding: .33em;
-  display: inline-block;
-}
+    .squareShape {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(197, 12, 12);
+      display: inline-block;
+      outline: 2px solid black
+  }
 
-footer {
-  padding: .5em;
-  background-color: #ADA8B6;
-}
+</style>
+
