@@ -5,18 +5,18 @@ const scoreElement = document.getElementById("score");
 const ROW = 20;
 const COL = (COLUMN = 10);
 const SQ = (squareSize = 20);
-const VACANT = "WHITE"; // color of an empty square
+const VACANT = "BLACK";
 
-// draw a square
+//square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * SQ, y * SQ, SQ, SQ);
 
-  ctx.strokeStyle = "BLACK";
+  ctx.strokeStyle = "WHITE";
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
-// create the board
+//bored
 
 let board = [];
 for (r = 0; r < ROW; r++) {
@@ -37,14 +37,12 @@ function drawBoard() {
 
 drawBoard();
 
-// the pieces and their colors
-
 const PIECES = [
-  [Z, "red"],
-  [S, "green"],
-  [T, "yellow"],
-  [O, "blue"],
-  [L, "purple"],
+  [Z, "indianred"],
+  [S, "limegreen"],
+  [T, "gold"],
+  [O, "lightskyblue"],
+  [L, "indigo"],
   [I, "cyan"],
   [J, "orange"]
 ];
@@ -64,10 +62,9 @@ function Piece(tetromino, color) {
   this.tetromino = tetromino;
   this.color = color;
 
-  this.tetrominoN = 0; // we start from the first pattern
+  this.tetrominoN = 0;
   this.activeTetromino = this.tetromino[this.tetrominoN];
 
-  // we need to control the pieces
   this.x = 3;
   this.y = -2;
 }
@@ -77,7 +74,6 @@ function Piece(tetromino, color) {
 Piece.prototype.fill = function(color) {
   for (r = 0; r < this.activeTetromino.length; r++) {
     for (c = 0; c < this.activeTetromino.length; c++) {
-      // we draw only occupied squares
       if (this.activeTetromino[r][c]) {
         drawSquare(this.x + c, this.y + r, color);
       }
@@ -91,13 +87,9 @@ Piece.prototype.draw = function() {
   this.fill(this.color);
 };
 
-// undraw a piece
-
 Piece.prototype.unDraw = function() {
   this.fill(VACANT);
 };
-
-// move Down the piece
 
 Piece.prototype.moveDown = function() {
   if (!this.collision(0, 1, this.activeTetromino)) {
@@ -105,7 +97,6 @@ Piece.prototype.moveDown = function() {
     this.y++;
     this.draw();
   } else {
-    // we lock the piece and generate a new one
     this.lock();
     p = randomPiece();
   }
@@ -164,10 +155,10 @@ Piece.prototype.lock = function() {
       if (!this.activeTetromino[r][c]) {
         continue;
       }
-      // pieces to lock on top = game over
+      // Game over
       if (this.y + r < 0) {
-        alert("Game Over");
-        // stop request animation frame
+        alert("Nice Try! Remeber To Wash Your Hands!");
+
         gameOver = true;
         break;
       }

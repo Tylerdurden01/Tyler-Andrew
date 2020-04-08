@@ -1,9 +1,1 @@
-# this is a header
-https://github.com/Tylerdurden01/Tyler-Andrew.git
-This is normal text!
-~~test~~
-
-## Header number 2
-
-[![Sleeping on a plane](https://i.imgur.com/c0hWS0R.gif)](http://www.google.com)
-
+This is a Tetris tutorial I followed along with and altered the colors and looks of the game.
