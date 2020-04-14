@@ -5,7 +5,7 @@ const scoreElement = document.getElementById("score");
 const ROW = 20;
 const COL = (COLUMN = 10);
 const SQ = (squareSize = 20);
-const VACANT = "BLACK";
+const VACANT = "black";
 
 //square
 function drawSquare(x, y, color) {
@@ -16,7 +16,7 @@ function drawSquare(x, y, color) {
   ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
-//bored
+//board
 
 let board = [];
 for (r = 0; r < ROW; r++) {
@@ -47,7 +47,7 @@ const PIECES = [
   [J, "orange"]
 ];
 
-// generate random pieces
+// How it generates random pieces
 
 function randomPiece() {
   let r = (randomN = Math.floor(Math.random() * PIECES.length)); // 0 -> 6
@@ -151,13 +151,12 @@ let score = 0;
 Piece.prototype.lock = function() {
   for (r = 0; r < this.activeTetromino.length; r++) {
     for (c = 0; c < this.activeTetromino.length; c++) {
-      // we skip the vacant squares
       if (!this.activeTetromino[r][c]) {
         continue;
       }
       // Game over
       if (this.y + r < 0) {
-        alert("Nice Try! Remeber To Wash Your Hands!");
+        alert("Nice Try! Remember To Wash Your Hands!");
 
         gameOver = true;
         break;
