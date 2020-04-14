@@ -44,7 +44,8 @@ const PIECES = [
   [O, "lightskyblue"],
   [L, "indigo"],
   [I, "cyan"],
-  [J, "orange"]
+  [J, "orange"],
+  [Q, "pink"]
 ];
 
 // How it generates random pieces
